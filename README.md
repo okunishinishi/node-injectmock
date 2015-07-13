@@ -1,7 +1,8 @@
 injectmock
 =====
 
-Parse function arguments. Useful to implement variadic functions.
+Inject mock property to object(or module). 
+Useful to inject mock on unittest and restore safely after done.
 
 <!-- Badge start -->
 
@@ -12,9 +13,6 @@ Parse function arguments. Useful to implement variadic functions.
 
 Usage
 -----
-
-Call `injectmock(module, key, mock);` to to inject mock value and, `injectmock.restoreAll();` to undo all injections.
- 
 
 ```javascript
 /**
@@ -39,27 +37,22 @@ exports.tearDown = function(done) {
 ```
 
 
-Advanced
+APIGuide
 -----
 
-### Restore specific mock.
-
-Use `injectmock.restore(module, key);` to restore a specific mock. 
-
-```javascript
-var injectmock = require('injectmock');
-var noop = function noop(){}; //Do nothing.
-injectmock(console, 'log', noop);  
-injectmock(console, 'error', noop);
-
-/* ~ */
-injectmock.restore(console, 'log'); //Restore log only.
+| Signature | Description |
+| ----- | ----- |
+| `injectmock(module, key, value)` | Inject a mock to module. |
+| `injectmock.restore(module, key)` | Restore an injected. |
+| `injectmock.restoreAll()` | Restore all injected. |
+| `injectmock.new()` | Returns a new `injectmock` context, which has separated mock stacks. |
+| `injectmock.noop()` | Do nothing. You can use this method as mock to do nothing. |
 
 ```
 
 ### Custom context.
 
-Call `injectmock.new()` to create new injectmock, which has separated mock stack. 
+ 
 
 ```javascript
 var injectmock = require('injectmock'),
