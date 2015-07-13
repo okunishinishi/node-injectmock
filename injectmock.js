@@ -47,6 +47,7 @@ Injector.prototype = {
         s.injections.unshift({
             module: module,
             key: key,
+            delete: !module.hasOwnProperty(key),
             origin: module[key],
             value: value
         });
@@ -64,9 +65,12 @@ Injector.prototype = {
         var index = s._indexOfInjection(module, key);
         var injection = s.injections[index];
         if (injection) {
-            module[key] = injection.origin;
+            if (injection.delete) {
+                delete module[key];
+            } else {
+                module[key] = injection.origin;
+            }
             s.injections.splice(index, 1);
-
         } else {
             // Do nothing.
         }
@@ -78,8 +82,8 @@ Injector.prototype = {
      */
     restoreAll: function () {
         var s = this;
-        for (var i = 0, len = s.injections.length; i < len; i++) {
-            var injection = s.injections[i];
+        while (s.injections.length) {
+            var injection = s.injections[0];
             s.restore(injection.module, injection.key);
         }
         return s;

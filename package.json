@@ -1,6 +1,6 @@
 {
   "name": "injectmock",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Inject mock and restore original for javascript property.  Useful for unit testing.",
   "main": "injectmock.js",
   "scripts": {
