@@ -1,8 +1,7 @@
 injectmock
 =====
 
-Inject mock property to object(or module). 
-Useful to inject mock on unittest and restore safely after done.
+Inject mock and restore original for javascript property.  Useful for unit testing.
 
 <!-- Badge start -->
 
@@ -13,6 +12,25 @@ Useful to inject mock on unittest and restore safely after done.
 
 Usage
 -----
+
+Injecting mock:
+
+```javascript
+var injectmock = require('injectmock');
+injectmock(myModule, 'myFunction', myMockFunction);
+```
+
+Restoring Original:
+
+```javascript
+injectmock.restoreAll();
+```
+
+
+Examples
+-----
+
+Work with nodeunit setUp/tearDown method:
 
 ```javascript
 /**
@@ -46,51 +64,42 @@ exports.tearDown = function(done) {
 ```
 
 
-APIGuide
------
-
-##### `injectmock(module, key, value)`
-
-Inject a mock to module. 
-
- 
-##### `injectmock.restore(module, key)` 
-
-Restore an injected. 
-
-
-##### `injectmock.restoreAll()` 
-
-Restore all injected. 
-
-
-##### `injectmock.new()` 
-
-Returns a new `injectmock` context, which has separated mock stacks.
- 
-
-##### `injectmock.noop()` 
-
-Do nothing. You can use this method as mock to do nothing. 
-
-
- 
-
-```javascript
-var injectmock = require('injectmock'),
-    injectmock01 = injectmock.new(),
-    injectmock02 = injectmock.new();
-```
-
-
-
-
 Installation
 -----
+
+Install module via [npm][npm_url]
 
 ```bash
 npm install injectmock --save-dev
 ```
+
+
+APIGuide
+-----
+
+#### `injectmock(module, key, value)`
+
+Inject a mock to module. 
+
+ 
+#### `injectmock.restore(module, key)` 
+
+Restore an injected. 
+
+
+#### `injectmock.restoreAll()` 
+
+Restore all injected. 
+
+
+#### `injectmock.new()` 
+
+Returns a new `injectmock` context, which has separated mock stacks.
+ 
+
+#### `injectmock.noop()` 
+
+Do nothing. You can use this method as mock to do nothing. 
 
 
 License
