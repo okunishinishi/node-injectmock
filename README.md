@@ -48,7 +48,6 @@ APIGuide
 | `injectmock.new()` | Returns a new `injectmock` context, which has separated mock stacks. |
 | `injectmock.noop()` | Do nothing. You can use this method as mock to do nothing. |
 
-```
 
 ### Custom context.
 
