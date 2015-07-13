@@ -1,6 +1,6 @@
 {
   "name": "injectmock",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Inject mock property to object(or module). Useful to inject mock on unittest and restore safely after done.",
   "main": "injectmock.js",
   "scripts": {

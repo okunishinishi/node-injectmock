@@ -21,15 +21,24 @@ Usage
 
 var injectmock = require('injectmock');
 
+// Disable console.log before test started.
 exports.setUp = function(done) {
-    injectmock(console, 'log', function mockLog(){
-        // Mock console.log here.
+    function mockLog(){
     });
+    
+    // Inject `mockLog` as `console.log`. 
+    injectmock(console, 'log', mockLog);
+     
     done();    
 }
 
+// Disable console.log before test done.
 exports.tearDown = function(done) {
-    injectmock.restoreAll();    
+    // Restore all injected.
+    injectmock.restoreAll();
+    
+    console.log('Now I am back!');
+            
     done();
 };
 
@@ -40,16 +49,30 @@ exports.tearDown = function(done) {
 APIGuide
 -----
 
-| Signature | Description |
-| ----- | ----- |
-| `injectmock(module, key, value)` | Inject a mock to module. |
-| `injectmock.restore(module, key)` | Restore an injected. |
-| `injectmock.restoreAll()` | Restore all injected. |
-| `injectmock.new()` | Returns a new `injectmock` context, which has separated mock stacks. |
-| `injectmock.noop()` | Do nothing. You can use this method as mock to do nothing. |
+##### `injectmock(module, key, value)`
+
+Inject a mock to module. 
+
+ 
+##### `injectmock.restore(module, key)` 
+
+Restore an injected. 
 
 
-### Custom context.
+##### `injectmock.restoreAll()` 
+
+Restore all injected. 
+
+
+##### `injectmock.new()` 
+
+Returns a new `injectmock` context, which has separated mock stacks.
+ 
+
+##### `injectmock.noop()` 
+
+Do nothing. You can use this method as mock to do nothing. 
+
 
  
 
