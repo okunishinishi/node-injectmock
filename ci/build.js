@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Run build
+ * Build this project.
  */
 
 "use strict";
