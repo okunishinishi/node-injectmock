@@ -33,9 +33,13 @@ Inject mock and restore original for javascript property.  Useful for unit testi
 
 
 
+
 <!-- Sections Start -->
 <a name="sections"></a>
 
+<!-- Section from "docs/readme/01.Installation.md.hbs" Start -->
+
+<a name="section-docs-readme-01-installation-md"></a>
 Installation
 -----
 
@@ -43,6 +47,11 @@ Installation
 npm install injectmock --save-dev
 ```
 
+<!-- Section from "docs/readme/01.Installation.md.hbs" End -->
+
+<!-- Section from "docs/readme/02.Usage.md.hbs" Start -->
+
+<a name="section-docs-readme-02-usage-md"></a>
 Usage
 ----
 
@@ -59,6 +68,11 @@ Restoring Original:
 injectmock.restoreAll();
 ```
 
+<!-- Section from "docs/readme/02.Usage.md.hbs" End -->
+
+<!-- Section from "docs/readme/03.Examples.md.hbs" Start -->
+
+<a name="section-docs-readme-03-examples-md"></a>
 Examples
 -----
 
@@ -94,6 +108,11 @@ exports.tearDown = function (done) {
 
 ```
 
+<!-- Section from "docs/readme/03.Examples.md.hbs" End -->
+
+<!-- Section from "docs/readme/04.API.md.hbs" Start -->
+
+<a name="section-docs-readme-04-a-p-i-md"></a>
 API Guide
 -----
 
@@ -120,6 +139,8 @@ Returns a new `injectmock` context, which has separated mock stacks.
 #### `injectmock.noop()`
 
 Do nothing. You can use this method as mock to do nothing.
+
+<!-- Section from "docs/readme/04.API.md.hbs" End -->
 
 
 <!-- Sections Start -->
